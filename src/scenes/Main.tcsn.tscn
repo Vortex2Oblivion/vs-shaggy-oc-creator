@@ -1,0 +1,65 @@
+[gd_scene load_steps=17 format=3 uid="uid://uutpq2e02en"]
+
+[ext_resource type="Script" path="res://src/scripts/Button.gd" id="1_mhqpi"]
+[ext_resource type="Texture2D" uid="uid://dlnk6mt0mlge5" path="res://assets/images/heads/yellowhead.png" id="2_cr7ld"]
+[ext_resource type="Texture2D" uid="uid://cw37s34i432ak" path="res://assets/images/heads/bluehead.png" id="3_ni62p"]
+[ext_resource type="Texture2D" uid="uid://8yaxrplv7dol" path="res://assets/images/heads/redhead(sonicexe mod refrence).png" id="4_hndjc"]
+[ext_resource type="Texture2D" uid="uid://daavpgjejbnbi" path="res://assets/images/heads/greenhead.png" id="5_wptmq"]
+[ext_resource type="Texture2D" uid="uid://c1vh5sg68a50u" path="res://assets/images/torsos/greentorso.png" id="6_xnk27"]
+[ext_resource type="Texture2D" uid="uid://si3v7e37kdgr" path="res://assets/images/torsos/redtorso.png" id="7_twvfu"]
+[ext_resource type="Texture2D" uid="uid://dyhseuev047p8" path="res://assets/images/torsos/bluetorso.png" id="8_yg4ft"]
+[ext_resource type="Texture2D" uid="uid://b58i4ofmwhblw" path="res://assets/images/torsos/yellowtorso.png" id="9_f7dyn"]
+[ext_resource type="Texture2D" uid="uid://hqdp51is2x6m" path="res://assets/images/legs/bluelegs.png" id="10_u0kmy"]
+[ext_resource type="Texture2D" uid="uid://bcxfx0uwuc1w6" path="res://assets/images/legs/greenlegs.png" id="11_2khyx"]
+[ext_resource type="Texture2D" uid="uid://ch5ampw7v588" path="res://assets/images/legs/nerdlegs.png" id="12_11tev"]
+[ext_resource type="Texture2D" uid="uid://c35m62bqmn62l" path="res://assets/images/legs/redlegs.png" id="13_tqm2e"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yo1jd"]
+animations = [{
+"frames": [ExtResource("2_cr7ld"), ExtResource("3_ni62p"), ExtResource("4_hndjc"), ExtResource("5_wptmq")],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0e11d"]
+animations = [{
+"frames": [ExtResource("6_xnk27"), ExtResource("7_twvfu"), ExtResource("8_yg4ft"), ExtResource("9_f7dyn")],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l4od0"]
+animations = [{
+"frames": [ExtResource("10_u0kmy"), ExtResource("11_2khyx"), ExtResource("12_11tev"), ExtResource("13_tqm2e")],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Main" type="Node2D"]
+
+[node name="Button" type="Button" parent="."]
+offset_left = 1.0
+offset_right = 499.0
+offset_bottom = 52.0
+text = "Create Shaggy OC"
+script = ExtResource("1_mhqpi")
+
+[node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="Button"]
+position = Vector2(221, 96)
+scale = Vector2(0.676471, 0.676471)
+frames = SubResource("SpriteFrames_yo1jd")
+
+[node name="torso" type="AnimatedSprite2D" parent="Button"]
+position = Vector2(199, 266)
+scale = Vector2(0.64557, 0.64557)
+frames = SubResource("SpriteFrames_0e11d")
+
+[node name="legs" type="AnimatedSprite2D" parent="Button"]
+position = Vector2(195.997, 441.188)
+scale = Vector2(0.625, 0.625)
+frames = SubResource("SpriteFrames_l4od0")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_button_pressed"]
